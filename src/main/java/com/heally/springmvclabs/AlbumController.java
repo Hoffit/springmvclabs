@@ -5,6 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 public class AlbumController {
@@ -14,20 +16,18 @@ public class AlbumController {
 
     @GetMapping("/albums")
     public String index(Model model) {
-
-//Interim mock data...
-//        Album[] albums = new Album[] {
-//                new Album("a title", "an artist", 9, 1620, "http://www.metcoverart.com/gallery/displayimage.php?pid=14016"),
-//                new Album("another title", "another artist", 8, 945, "http://www.metcoverart.com/gallery/displayimage.php?pid=14015")
-//        };
         model.addAttribute("albums", albumRepository.findAll());
         return "albumIndex";
     }
 
     @PostMapping("/albums")
-    public String create(Model model) {
-//TODO this is temp data to check that inserts work...
-        albumRepository.save(new Album("a title", "an artist", 9, 1620, "http://www.metcoverart.com/gallery/displayimage.php?pid=14016"));
-        return "albumIndex";
+    public RedirectView create(
+            @RequestParam String title,
+            @RequestParam String artist,
+            @RequestParam String albumArtURL,
+            @RequestParam int songCount,
+            @RequestParam int length) {
+        albumRepository.save(new Album(title, artist, songCount, length, albumArtURL));
+        return new RedirectView("/albums");
     }
 }
