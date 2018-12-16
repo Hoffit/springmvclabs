@@ -6,16 +6,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 /**
- *
+ * Simple hello world Spring MVC Web App.
  */
 @Controller
 public class HelloController {
 
     /**
-     *
-     * @param text
-     * @param model
-     * @return
+     * Hello world route.
+     * @param text A message parameter, which gets capitalized, and returned to the web requester.
+     * @param model Spring model, container of the message.
+     * @return The route to hello world page (/hello).
      */
     @GetMapping("/hello")
     public String hello(@RequestParam(name="message", required=false, defaultValue="Hello") String text, Model model) {

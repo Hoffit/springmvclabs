@@ -1,6 +1,6 @@
-# CF Code Lab 12
+# CF Code Lab 12 and Lab 13
 ## Spring RESTful Routing
-GET and POST albums in a database.
+GET and POST albums in a database, including their songs.
 
 ## Challenge
 ### Feature Tasks

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>The Song Library</h1>
+<table>
+    <thead>
+    <tr>
+        <th colspan="1">Track Number</th>
+        <th colspan="1">Title</th>
+        <th colspan="1">Length (seconds)</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="song : ${songs}">
+        <td th:text="${song.trackNumber}"></td>
+        <td th:text="${song.title}"></td>
+        <td th:text="${song.length}"></td>
+    </tr>
+    </tbody>
+</table>
+<H1>Add a new album to the library</H1>
+<form action="/songs" method="POST">
+    <input name="trackNumber" />
+    <input name="title" />
+    <input name="length" />
+    <input type="submit" \>
+</form>
+</body>
+</html>
