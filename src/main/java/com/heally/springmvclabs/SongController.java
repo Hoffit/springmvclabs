@@ -30,22 +30,4 @@ public class SongController {
         model.addAttribute("songs", SongRepository.findAll());
         return "songIndex";
     }
-
-    /**
-     * Adds the new song to the repository.
-     * @param title Song title.
-     * @param length Song length in seconds.
-     * @param album The album to which the song belongs.
-     * @param trackNumber The track number on the album.
-     * @return
-     */
-    @PostMapping("/songs")
-    public RedirectView create(
-            @RequestParam String title,
-            @RequestParam int length,
-            @RequestParam Album album,
-            @RequestParam int trackNumber) {
-        SongRepository.save(new Song(title, length, album, trackNumber));
-        return new RedirectView("/songs");
-    }
 }

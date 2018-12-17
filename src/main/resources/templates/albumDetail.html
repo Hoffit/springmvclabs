@@ -8,9 +8,9 @@
 </head>
 <body>
 <h1>Album Detail</h1>
-Title: <p th:text="${album.title}"></p>
-Artist: <p th:text="${album.artist}"></p>
-Album Art: <p th:text="${album.albumArtURL}"></p>
+<p>Title: <span th:text="${album.title}"></span></p>
+<p>Artist: <span th:text="${album.artist}"></span></p>
+<p>Album Art: <img th:src="${album.albumArtURL}"></p>
 <table>
     <thead>
     <tr>
@@ -20,7 +20,7 @@ Album Art: <p th:text="${album.albumArtURL}"></p>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="song : ${songs}">
+    <tr th:each="song : ${album.songs}">
         <td th:text="${song.trackNumber}"></td>
         <td th:text="${song.title}"></td>
         <td th:text="${song.length}"></td>
@@ -28,7 +28,7 @@ Album Art: <p th:text="${album.albumArtURL}"></p>
     </tbody>
 </table>
 <H1>Add a new song to the album</H1>
-<form action="/albums" method="POST">
+<form th:action="${'/albums/' + album.id + '/add-song'}" method="POST">
     <input name="trackNumber" />
     <input name="title" />
     <input name="length" />

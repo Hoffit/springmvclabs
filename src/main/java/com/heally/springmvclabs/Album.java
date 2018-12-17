@@ -47,7 +47,7 @@ public class Album {
      * A list of songs contained in the Album.
      */
     @OneToMany
-    private List<Song> songs;
+    private final List<Song> songs = new LinkedList<Song>();
 
     /**
      * Default constructor.
@@ -160,10 +160,26 @@ public class Album {
     }
 
     /**
-     * Setter.
-     * @param songs The songs that belong to the album.
+     * Getter.
+     * @return The uid.
      */
-    public void setSongs(List<Song> songs) {
-        this.songs = songs;
+    public long getId() {
+        return id;
+    }
+
+    /**
+     * Setter.
+     * @param id The uid.
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    /**
+     * Add a song to this albums list.
+     * @param song The song to add.
+     */
+    public void addSong(Song song) {
+        songs.add(song);
     }
 }

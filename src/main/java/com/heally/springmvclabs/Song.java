@@ -53,6 +53,7 @@ public class Song {
     public Song(String title, int length, Album album, int trackNumber) {
         this.title = title;
         this.length = length;
+        this.album = album;
         this.trackNumber = trackNumber;
     }
 
