@@ -16,15 +16,21 @@
         <th colspan="1">Album Art URL</th>
         <th colspan="1">Song Count</th>
         <th colspan="1">Length (seconds)</th>
+        <th colspan="1">Songs</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="album : ${albums}">
         <td th:text="${album.title}"></td>
         <td th:text="${album.artist}"></td>
-        <td th:text="${album.albumArtURL}"></td>
+        <td>
+            <img th:src="${album.albumArtURL}">
+        </td>
         <td th:text="${album.songCount}"></td>
         <td th:text="${album.length}"></td>
+        <td>
+            <a th:href="${'/albums/' + album.id + '/album-details'}">songs</a>
+        </td>
     </tr>
     </tbody>
 </table>
