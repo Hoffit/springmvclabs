@@ -33,5 +33,5 @@ From there it's the same to test, by going to localhost in your browser.
 There are environment variables required in both cases. You can decide which approach to take, but you'll
 need to modify settings in resources/application.properties before running. There are instructions in that file.
 
-## API See javadoc and white board image for more details.
-This is a TODO - no javadoc yet.
+## API See javadoc
+/javadoc/
