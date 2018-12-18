@@ -36,13 +36,6 @@
 </table>
 <H1>Add a new album to the library</H1>
 <form action="/albums" method="POST">
-    <Table>
-        <tr>
-            <td>Title:</td>
-            <td><input type="text" th:field="*{album.title}" /></td>
-            <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
-        </tr>
-    </Table>
     <input name="title" />
     <input name="artist" />
     <input name="albumArtURL" />
